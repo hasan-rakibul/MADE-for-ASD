@@ -1,0 +1,6 @@
+pandas
+numpy
+docopt
+tensorflow-gpu
+sklearn
+scipy
