@@ -48,28 +48,25 @@ if __name__ == "__main__":
             int(tc[tc["SEX"] == "F"].shape[0]),
         ))
 
+    # for site, df_site in pheno.groupby("SITE_ID"):
+    #     asd = df_site[df_site["DX_GROUP"] == 0]
+    #     tc = df_site[df_site["DX_GROUP"] == 1]
+    #     fmt = "% 8s &    % 8.1f (% 8.1f) & % 8.1f (% 8.1f)    &  M % 3d, F % 3d &    % 8.1f (% 8.1f) &  M % 3d, F % 3d \\\\"
 
-    os._exit()
-
-    for site, df_site in pheno.groupby("SITE_ID"):
-        asd = df_site[df_site["DX_GROUP"] == 0]
-        tc = df_site[df_site["DX_GROUP"] == 1]
-        fmt = "% 8s &    % 8.1f (% 8.1f) & % 8.1f (% 8.1f)    &  M % 3d, F % 3d &    % 8.1f (% 8.1f) &  M % 3d, F % 3d \\\\"
-
-        print (fmt % (
-            site,
-            asd["AGE"].mean(),
-            asd["AGE"].std(),
-            #int(0),
-            #int(0),
-            #asd["ADOS"].mean(),
-            #asd["ADOS"].std(),
-            asd["MEAN_FD"].mean(),
-            asd["MEAN_FD"].std(),
-            int(asd[asd["SEX"] == "M"].shape[0]),
-            int(asd[asd["SEX"] == "F"].shape[0]),
-            tc["AGE"].mean(),
-            tc["AGE"].std(),
-            int(tc[tc["SEX"] == "M"].shape[0]),
-            int(tc[tc["SEX"] == "F"].shape[0]),
-        ))
+    #     print (fmt % (
+    #         site,
+    #         asd["AGE"].mean(),
+    #         asd["AGE"].std(),
+    #         #int(0),
+    #         #int(0),
+    #         #asd["ADOS"].mean(),
+    #         #asd["ADOS"].std(),
+    #         asd["MEAN_FD"].mean(),
+    #         asd["MEAN_FD"].std(),
+    #         int(asd[asd["SEX"] == "M"].shape[0]),
+    #         int(asd[asd["SEX"] == "F"].shape[0]),
+    #         tc["AGE"].mean(),
+    #         tc["AGE"].std(),
+    #         int(tc[tc["SEX"] == "M"].shape[0]),
+    #         int(tc[tc["SEX"] == "F"].shape[0]),
+    #     ))

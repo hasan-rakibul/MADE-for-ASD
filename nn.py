@@ -647,25 +647,30 @@ if __name__ == "__main__":
     experiments = sorted(experiments)
 
     y_pred=[]
+    turn=0
     for experiment in experiments:
+ 
         print(experiment)
         #y_pred = run_nn(hdf5, experiment, code_size_1, code_size_2)
         if len(y_pred)==0:
           y_test,y_pred=run_nn(hdf5, experiment, code_size_1, code_size_2)
         else:
           _,pred=run_nn(hdf5, experiment, code_size_1, code_size_2)
-          y_pred+=pred
+          if turn==1:
+            y_pred+=0.5*pred
+          if turn==2:
+            y_pred+=0.7*pred
+        turn+=1
+
     
 
-    print(np.argmax(y_pred, 1))
-    print(np.argmax(y_test, 1))
+    # print(np.argmax(y_pred, 1))
+    # print(np.argmax(y_test, 1))
 
     correct_pred=sum(np.equal(np.argmax(y_pred, 1),np.argmax(y_test, 1)))
 
     print(correct_pred/len(np.argmax(y_test, 1)))
     
-
-
     #accuracy = tf.cast(correct_prediction, "float")
     #print('accuracy:',accuracy)
     #print(y_pred)

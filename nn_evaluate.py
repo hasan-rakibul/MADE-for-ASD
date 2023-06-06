@@ -60,8 +60,8 @@ def nn_results(hdf5, experiment, code_size_1, code_size_2):
         X_all=np.vstack((X_train,X_valid,X_test))
         y_all=np.concatenate((np.array(y_train),np.array(y_valid),np.array(y_test)),axis=0)
 
-        print(X_all.shape)
-        print(y_all.shape)
+        # print(X_all.shape)
+        # print(y_all.shape)
 
         ks=0
         if X_train.shape[1]<10000:
@@ -69,7 +69,7 @@ def nn_results(hdf5, experiment, code_size_1, code_size_2):
         else:
           ks=3000    
         X_new=SelectKBest(f_classif,k=ks).fit_transform(X_all[:,:-2], y_all)
-        print(X_new.shape)
+        # print(X_new.shape)
 
         train=X_train.shape[0]
         valid=X_valid.shape[0]
@@ -81,7 +81,7 @@ def nn_results(hdf5, experiment, code_size_1, code_size_2):
         X_valid=X_new[train:train+valid]
         X_test=X_new[train+valid:train+valid+test]
 
-        print(X_new.shape)
+        # print(X_new.shape)
 
         #y_test = np.array([to_softmax(n_classes, y) for y in y_test])
 
@@ -154,12 +154,12 @@ def nn_results(hdf5, experiment, code_size_1, code_size_2):
                 y_pred = np.argmax(output, axis=1)
                 y_true = np.argmax(y_test, axis=1)
 
-                print(y_true.shape)
-                print(y_pred.shape)
-                print(y_pred)
-                print(y_true)
+                # print(y_true.shape)
+                # print(y_pred.shape)
+                # print(y_pred)
+                # print(y_true)
 
-                print(sum(np.equal(y_pred,y_true)))
+                # print(sum(np.equal(y_pred,y_true)))
 
                 X_sub=[]
                 y_sub=[]
@@ -170,10 +170,10 @@ def nn_results(hdf5, experiment, code_size_1, code_size_2):
                     y_sub.append(y_pred[i])
 
                 X_sub=np.array(X_sub)
-                print(X_sub.shape)
+                # print(X_sub.shape)
                 y_sub=np.array(y_sub)
 
-                print(X_sub.shape)
+                # print(X_sub.shape)
 
                 np.save('X_sub_without_NYU.npy',X_sub)
                 np.save('y_sub_without_NYU.npy',y_sub)

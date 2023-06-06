@@ -64,7 +64,7 @@ def load_phenotypes_2(pheno_path):
     pheno["STRAT"] = pheno[["SITE_ID", "DX_GROUP"]].apply(lambda x: "_".join([str(s) for s in x]), axis=1)
     pheno["AGE"] = pheno['AGE_AT_SCAN']
 
-    pheno["FIQ"] = pheno['FIQ'].apply(lambda v: {-9999: '100'}[v])
+    #pheno["FIQ"] = pheno['FIQ'].apply(lambda v: {-9999: '100'}[v])
     pheno["FIQ"] = pheno['FIQ'].fillna(pheno['FIQ'].mean())
 
     pheno['HANDEDNESS_SCORES'] = pheno['HANDEDNESS_SCORES'].fillna(method='bfill')
