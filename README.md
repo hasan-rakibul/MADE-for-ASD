@@ -3,6 +3,8 @@
 **Paper Title: Autism Spectrum Disorder Diagnosis with Ensemble Deep
 Neural Networ**
 
+**Author**: Xuehan Liu (Xuehan.Liu@anu.edu.au)
+
 **Abstract:** The objective of this study is to formulate an effective approach for early Autism Spectrum Disorder (ASD) detection utilizing brain functional magnetic resonance imaging (fMRI) data. We present a weighted ensemble learning architecture using an innovative DNN, feature selection and transfer learning technique. 
 
 
@@ -50,6 +52,7 @@ We use the command below:
 ```
 #nn.py [--whole] [--male] [--threshold] [--leave-site-out] [<derivative> ...]
 
+!rm ./data/models/*mlp*
 !python nn.py --leave-site-out cc200 aal ez
 ```  
 
