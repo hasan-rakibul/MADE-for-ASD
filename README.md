@@ -37,7 +37,7 @@ We use the command below:
 !python pheno_info.py
 ```
 
-3. Run `prepare_data.py` to compute the correlation. Then we can get the hdf5 files. The dataset(hdf5) is put on the [colab link](https://drive.google.com/file/d/1-WyQ7IOqSxaGcoA6MR4ydJdazlqzKYMY/view?usp=drive_link), you need to put it in the "data" folder. Or you can simply run the code as:
+3. Run `prepare_data.py` to compute the correlation. Then we can get the hdf5 files. The dataset (hdf5) can be downloaded from [link](https://drive.google.com/file/d/1-WyQ7IOqSxaGcoA6MR4ydJdazlqzKYMY/view?usp=drive_link); you need to put it in the "data" folder. Or you can simply run the code as:
 
 ```
 #download_abide.py [--folds=N] [--whole] [--male] [--threshold] [--leave-site-out] [--NYU-site-out] [<derivative> ...]
@@ -45,7 +45,7 @@ We use the command below:
 !python prepare_data.py --leave-site-out cc200 aal ez
 ```
 
-5. Using Stacked Sparse Denoising Autoencoder (SSDAE) to perform Multi-atlas Deep Feature Representation, and using multilayer perceptron (MLP) and ensemble learning to classify the ASD and TC.
+4. Using Stacked Sparse Denoising Autoencoder (SSDAE) to perform Multi-atlas Deep Feature Representation, and using multilayer perceptron (MLP) and ensemble learning to classify the ASD and TC.
 
 ```
 #nn.py [--whole] [--male] [--threshold] [--leave-site-out] [<derivative> ...]
@@ -54,7 +54,7 @@ We use the command below:
 !python nn.py --leave-site-out cc200 aal ez
 ```  
 
-4. Evaluating the MLP model on test dataset. You can use the saved models from provious or download the models from the [link](https://drive.google.com/drive/folders/1rIZpXdafzI-nb0YonkL0XQs6pOSSxRUf?usp=drive_link), and run this command directly without running previous steps.
+5. Evaluating the MLP model on test dataset. You can use the saved models from provious or download the models from the [link](https://drive.google.com/drive/folders/1rIZpXdafzI-nb0YonkL0XQs6pOSSxRUf?usp=drive_link), and run this command directly without running previous steps.
 
 ```
 #nn_evaluate.py [--whole] [--male] [--threshold] [--leave-site-out] [--NYU-site-out] [<derivative> ...]
