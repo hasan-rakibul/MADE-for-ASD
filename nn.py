@@ -21,10 +21,8 @@ Options:
 
 import os
 import numpy as np
-#import tensorflow as tf
 import tensorflow.compat.v1 as tf
-from sklearn.datasets import load_digits
-from sklearn.feature_selection import SelectKBest,chi2,f_classif
+from sklearn.feature_selection import SelectKBest,f_classif
 
 
 from docopt import docopt
@@ -32,10 +30,6 @@ from utils import (load_phenotypes, format_config, hdf5_handler, load_fold,
                    sparsity_penalty, reset, to_softmax, load_ae_encoder)
 
 from model import ae, nn
-
-from sklearn.decomposition import PCA  
-from pandas.core.frame import DataFrame
-from sklearn.model_selection import train_test_split
 
 
 def run_autoencoder1(experiment,

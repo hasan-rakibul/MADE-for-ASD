@@ -15,8 +15,7 @@ Options:
 """
 
 from docopt import docopt
-from utils import (load_phenotypes,load_phenotypes_2)
-import os
+from utils import load_phenotypes_2
 
 
 if __name__ == "__main__":

@@ -4,10 +4,8 @@ import re
 import sys
 import h5py
 import time
-import random
 import string
 import contextlib
-import cv2 
 import multiprocessing
 import pandas as pd
 import numpy as np

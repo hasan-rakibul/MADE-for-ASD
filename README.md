@@ -9,10 +9,10 @@
 
 ## Environment Setup
 
-Please be aware that this code is meant to be run with Python 3 under Linux (MacOS may work, Windows probably not). Download the packages from requirements.txt:
+Please be aware that this code is meant to be run with Python 3 under Linux (MacOS may work, Windows probably not). Download the packages from `requirements.txt`:
 
 ```bash
-!pip install -r requirements.txt
+python -m pip install -r requirements.txt
 ```
 We use the [ABIDE I dataset](http://fcon_1000.projects.nitrc.org/indi/abide/). We use the pre-processing method from the [preprocessed-connectomes-project](https://github.com/preprocessed-connectomes-project/abide).
 
@@ -25,41 +25,40 @@ We put all the experiment command and the result in the `Experiments.ipynb` file
 
 We use the command below:
 
-```
+```bash
 #download_abide.py [--pipeline=cpac] [--strategy=filt_global] [<derivative> ...]
-
-!python /content/drive/MyDrive/acerta-abide/download_abide.py
+python download_abide.py
 ```
 
 2. To show the demographic Information of ABIDE I.
 
 ```bash
-!python pheno_info.py
+python pheno_info.py
 ```
 
 3. Run `prepare_data.py` to compute the correlation. Then we can get the hdf5 files. The dataset (hdf5) can be downloaded from [link](https://drive.google.com/file/d/1-WyQ7IOqSxaGcoA6MR4ydJdazlqzKYMY/view?usp=drive_link); you need to put it in the "data" folder. Or you can simply run the code as:
 
-```
+```bash
 #download_abide.py [--folds=N] [--whole] [--male] [--threshold] [--leave-site-out] [--NYU-site-out] [<derivative> ...]
 
-!python prepare_data.py --leave-site-out cc200 aal ez
+python prepare_data.py --leave-site-out cc200 aal ez
 ```
 
 4. Using Stacked Sparse Denoising Autoencoder (SSDAE) to perform Multi-atlas Deep Feature Representation, and using multilayer perceptron (MLP) and ensemble learning to classify the ASD and TC.
 
-```
+```bash
 #nn.py [--whole] [--male] [--threshold] [--leave-site-out] [<derivative> ...]
 
-!rm ./data/models/*mlp*
-!python nn.py --leave-site-out cc200 aal ez
+rm ./data/models/*mlp*
+python nn.py --leave-site-out cc200 aal ez
 ```  
 
-5. Evaluating the MLP model on test dataset. You can use the saved models from provious or download the models from the [link](https://drive.google.com/drive/folders/1rIZpXdafzI-nb0YonkL0XQs6pOSSxRUf?usp=drive_link), and run this command directly without running previous steps.
+5. Evaluating the MLP model on test dataset. You can use the saved models from provious or download the models from the [link](https://drive.google.com/drive/folders/1rIZpXdafzI-nb0YonkL0XQs6pOSSxRUf?usp=drive_link), and **can run this command directly without running previous steps**.
 
-```
+```bash
 #nn_evaluate.py [--whole] [--male] [--threshold] [--leave-site-out] [--NYU-site-out] [<derivative> ...]
 
-!python nn_evaluate.py --leave-site-out cc200 aal ez
+python nn_evaluate.py --leave-site-out cc200 aal ez
 ```
         
 ## Quality Analysis and Visualisation

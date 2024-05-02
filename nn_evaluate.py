@@ -18,7 +18,6 @@ Options:
   derivative          Derivatives to process
 
 """
-from sklearn.model_selection import train_test_split
 import numpy as np
 import pandas as pd
 #import tensorflow as tf
@@ -26,11 +25,10 @@ from docopt import docopt
 from nn import nn
 from utils import (load_phenotypes, format_config, hdf5_handler,
                    reset, to_softmax, load_ae_encoder, load_fold)
-from sklearn.metrics import confusion_matrix
+from sklearn.metrics import confusion_matrix, accuracy_score, f1_score, roc_auc_score
 
 import tensorflow.compat.v1 as tf
-from sklearn.feature_selection import SelectKBest,chi2,f_classif
-import os
+from sklearn.feature_selection import SelectKBest,f_classif
 
 
 def nn_results(hdf5, experiment, code_size_1, code_size_2):
@@ -179,13 +177,15 @@ def nn_results(hdf5, experiment, code_size_1, code_size_2):
                 np.save('y_sub_without_NYU.npy',y_sub)
 
                 [[TN, FP], [FN, TP]] = confusion_matrix(y_true, y_pred, labels=[0, 1]).astype(float)
-                accuracy = (TP+TN)/(TP+TN+FP+FN)
                 specificity = TN/(FP+TN)
                 precision = TP/(TP+FP)
-                sensivity = recall = TP/(TP+FN)
-                fscore = 2*TP/(2*TP+FP+FN)
+                sensivity = TP/(TP+FN)
 
-                results.append([accuracy, precision, recall, fscore, sensivity, specificity])
+                accuracy = accuracy_score(y_true, y_pred)
+                fscore = f1_score(y_true, y_pred)
+                roc_auc = roc_auc_score(y_true, y_pred)
+
+                results.append([accuracy, precision, fscore, sensivity, specificity, roc_auc])
         finally:
             reset()
 
@@ -238,10 +238,10 @@ if __name__ == "__main__":
 
 
     # First autoencoder bottleneck
-    code_size_1 = 1000
+    code_size_1 = 1000 # not used
 
     # Second autoencoder bottleneck
-    code_size_2 = 600
+    code_size_2 = 600 # not used
 
     results = []
 
@@ -251,8 +251,7 @@ if __name__ == "__main__":
         print(experiment)
         results.append(nn_results(hdf5, experiment, code_size_1, code_size_2))
 
-    cols = ["Exp", "Accuracy", "Precision", "Recall", "F-score",
-            "Sensivity", "Specificity"]
+    cols = ["Exp", "Accuracy", "Precision", "F1-score", "Sensivity", "Specificity", "ROC-AUC"]
     df = pd.DataFrame(results, columns=cols)
 
     print('aaa',df[cols] \

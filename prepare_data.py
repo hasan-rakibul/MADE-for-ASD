@@ -20,7 +20,6 @@ Options:
 """
 import numpy as np
 import pandas as pd
-import statsmodels.api as sm
 
 import os
 import random
@@ -31,7 +30,6 @@ from docopt import docopt
 from functools import partial
 from sklearn import preprocessing
 from sklearn.model_selection import StratifiedKFold, train_test_split
-import cv2
 from utils import (load_phenotypes, format_config, run_progress, hdf5_handler)
 
 
