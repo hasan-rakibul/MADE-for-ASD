@@ -1,6 +1,7 @@
-# tensorflow # don't need to install tensorflow if you are using the docker image of tensorflow
+tensorflow
 pandas
 numpy
 docopt
+scikit-learn
 scikit-learn
 scipy

@@ -193,7 +193,7 @@ if __name__ == "__main__":
     pheno_path = "./data/phenotypes/Phenotypic_V1_0b_preprocessed1.csv"
     pheno = load_phenotypes(pheno_path)
 
-    hdf5 = hdf5_handler(bytes("./data/abide.hdf5",encoding="utf8"), 'a')
+    hdf5 = hdf5_handler(bytes("./data/abide.hdf5", encoding="utf8"), 'a')
 
     valid_derivatives = ["cc200", "aal", "ez", "ho", "tt", "dosenbach160"]
     derivatives = [derivative for derivative in arguments["<derivative>"] if derivative in valid_derivatives]
@@ -223,7 +223,6 @@ if __name__ == "__main__":
 
     if arguments["--leave-site-out"]:
         
-        # print('Hi')
         print ("Preparing leave-site-out dataset")
         for site in pheno["SITE_ID"].unique():
             if site=='NYU':
@@ -242,4 +241,3 @@ if __name__ == "__main__":
         pheno_without_site = pheno[pheno["SITE_ID"] != 'NYU']
         prepare_folds(hdf5, folds, pheno_without_site, derivatives,experiment="{derivative}_leavesiteout-NYU")
         
-
