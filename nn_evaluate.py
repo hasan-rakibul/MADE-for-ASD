@@ -33,6 +33,7 @@ from sklearn.feature_selection import SelectKBest,f_classif
 
 def nn_results(hdf5, experiment, code_size_1, code_size_2):
 
+    import pdb; pdb.set_trace()
     exp_storage = hdf5["experiments"][experiment]
 
     n_classes = 2
@@ -216,7 +217,7 @@ if __name__ == "__main__":
         config = {"derivative": derivative}
 
         if arguments["--whole"]:
-            experiments += [format_config("{derivative}_whole", config)],
+            experiments += format_config("{derivative}_whole", config), # removed []
 
         if arguments["--male"]:
             experiments += [format_config("{derivative}_male", config)]

@@ -1,7 +1,6 @@
-tensorflow
+tensorflow[and-cuda]
 pandas
 numpy
 docopt
-scikit-learn
 scikit-learn
 scipy

@@ -22,7 +22,7 @@ Options:
 import os
 import numpy as np
 import tensorflow.compat.v1 as tf
-from sklearn.feature_selection import SelectKBest,f_classif
+from sklearn.feature_selection import SelectKBest, f_classif
 
 
 from docopt import docopt
@@ -499,7 +499,7 @@ def run_nn(hdf5, experiment, code_size_1, code_size_2):
           ks=1000
         else:
           ks=3000
-        X_new=SelectKBest(f_classif,k=ks).fit_transform(X_all, y_all)
+        X_new=SelectKBest(f_classif, k=ks).fit_transform(X_all, y_all)
         print(X_new.shape)
 
         train=X_train.shape[0]
@@ -588,7 +588,7 @@ def run_nn(hdf5, experiment, code_size_1, code_size_2):
                        prev_model_2_path=ae2_model_path,
                        code_size_1=code_size_1,
                        code_size_2=code_size_2)
-        return y_test,y_pred
+        return y_test, y_pred
 
 if __name__ == "__main__":
 
