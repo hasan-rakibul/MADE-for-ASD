@@ -1,8 +1,8 @@
 # MADE-for-ASD: A Multi-Atlas Deep Ensemble Network for Detecting Autism Spectrum Disorder
 
-This repository contains codes of our above titled paper, accepted to be published in the "Computers in Biology and Medicine" journal. Codes are primarily developed by **Xuehan Liu**.
+This repository contains codes of our above titled paper, accepted to be published in the "Computers in Biology and Medicine" journal. **Codes are primarily developed by Xuehan Liu**.
 
-Paper link: [arXiv](https://arxiv.org/abs/2407.07076) [PDF](https://hasan-rakibul.github.io/pdfs/liu2024made.pdf)
+Paper link: [[arXiv](https://arxiv.org/abs/2407.07076)] [[PDF](https://hasan-rakibul.github.io/pdfs/liu2024made.pdf)]
 
 **Author**: X Liu*, MR Hasan*, T Gedeon and MZ Hossain 
 
@@ -66,7 +66,7 @@ python nn_evaluate.py --whole cc200 aal ez
 
 All the analysis for the subset and the visualisation of top ROIs, which mentioned in our work, are included in the `analysis_and_visulaisation.ipynb` file.
 
-# Citation
+## Citation
 If you find this repository useful in your research, please cite our paper:
 ```bibtex
 @article{liu2024made,
