@@ -2,9 +2,10 @@
 
 This repository contains codes of our above titled paper, accepted to be published in the "Computers in Biology and Medicine" journal. **Codes are primarily developed by Xuehan Liu**.
 
-Paper link: [[arXiv](https://arxiv.org/abs/2407.07076)] [[PDF](https://hasan-rakibul.github.io/pdfs/liu2024made.pdf)]
+Paper link: [[ScienceDirect](https://doi.org/10.1016/j.compbiomed.2024.109083)] [[arXiv](https://arxiv.org/abs/2407.07076)] [[PDF](https://hasan-rakibul.github.io/pdfs/liu2024made.pdf)]
 
-**Author**: X Liu*, MR Hasan*, T Gedeon and MZ Hossain 
+**Author**: Xuehan Liu*, Md Rakibul Hasan*, Tom Gedeon and Md Zakir Hossain <br>
+(*Equal contribution)
 
 **Abstract:** In response to the global need for efficient early diagnosis of Autism Spectrum Disorder (ASD), we aim to bridge the gap between traditional, time-consuming diagnostic methods and potential automated solutions. To this end, we propose a multi-atlas deep ensemble network, **MADE-for-ASD**, that integrates multiple atlases of the brain's functional magnetic resonance imaging (fMRI) data through a weighted deep ensemble network. We further integrate demographic information into the prediction workflow, which enhances ASD detection accuracy and offers a more holistic perspective on patient profiling. We experiment with the well-known publicly available Autism Brain Imaging Data Exchange (ABIDE), consisting of resting state fMRI data from 17 different laboratories around the globe. Our proposed system achieves an accuracy of 75.2% on the whole dataset and 96.40% on a subset – both surpassing the reported ASD detection performances in the literature. The proposed system can potentially pave the way for more cost-effective, efficient and scalable strategies in ASD diagnosis. Codes and evaluations are publicly available at https://github.com/hasan-rakibul/MADE-for-ASD.
 
@@ -73,9 +74,10 @@ If you find this repository useful in your research, please cite our paper:
     title = {{MADE}-for-{ASD}: A Multi-Atlas Deep Ensemble Network for Diagnosing Autism Spectrum Disorder},
     author = {Xuehan Liu and Md Rakibul Hasan and Tom Gedeon and Md Zakir Hossain},
     journal = {Computers in Biology and Medicine},
-    volume = {},
-    pages = {},
+    volume = {182},
+    pages = {109083},
     year = {2024},
     issn = {0010-4825},
-    doi = {}
+    doi = {10.1016/j.compbiomed.2024.109083}
 }
+```
